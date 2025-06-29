@@ -20,7 +20,7 @@ Confira como o CrazyCow Social aparece em diferentes dispositivos! (Substitua os
 |-------------|--------------|
 | Desktop     | ![Visualização no Desktop](assets/desktop.gif) |
 | Tablet      | ![Visualização no Tablet](assets/tablet.gif) |
-| Mobile      | ![Visualização no Celular](assets/smartphone.gif) |
+| Mobile      | ![Visualização no Celular](assets/mobile.gif) |
 
 ## Como usar
 
