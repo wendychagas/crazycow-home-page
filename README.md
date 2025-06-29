@@ -18,9 +18,9 @@ Confira como o CrazyCow Social aparece em diferentes dispositivos! (Substitua os
 
 | Dispositivo | Visualização |
 |-------------|--------------|
-| Desktop     | ![Visualização no Desktop](assets/desktop.png) |
-| Tablet      | ![Visualização no Tablet](assets/tablet.png) |
-| Mobile      | ![Visualização no Celular](assets/smartphone.png) |
+| Desktop     | ![Visualização no Desktop](assets/desktop.mp4) |
+| Tablet      | ![Visualização no Tablet](assets/tablet.mp4) |
+| Mobile      | ![Visualização no Celular](assets/smartphone.mp4) |
 
 ## Como usar
 
