@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br" style="scroll-padding-top: 80px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrazyCow - Tudo sobre Skate</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icone_aba.png">
+    <!-- Incluindo Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluindo Google Fonts: Rubik Bubbles e Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Incluindo Swiper.js CSS via CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Roboto', sans-serif; /* Fonte padrão para o corpo */
+            padding-top: 80px; /* Desloca o conteúdo para baixo da altura do cabeçalho */
+        }
+        h1, h2, .brand-logo {
+            font-family: 'Rubik Bubbles', cursive; /* Rubik Bubbles para títulos e logo */
+        }
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .hero-content {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para legibilidade */
+        }
+        .brand-logo {
+            cursor: pointer; /* Cursor de mãozinha ao passar o mouse */
+        }
+		.social-icon {
+			width: 32px; /* Tamanho fixo para ícones */
+			height: 32px;
+			transition: opacity 0.3s ease; /* Transição suave para opacidade */
+		}
+		.social-icon:hover {
+			opacity: 0.7; /* Efeito de opacidade ao passar o mouse */
+		}
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .hover-word {
+            transition: all 0.3s ease; /* Transição suave para hover */
+        }
+        .hover-word:hover {
+            color: #facc15; /* Amarelo do Tailwind (yellow-400) */
+            text-decoration: underline;
+            text-underline-offset: 4px; /* Sublinhado com deslocamento */
+        }
+        .about-section {
+            background: rgba(255, 255, 255, 0.95); /* Fundo branco suave */
+            border-radius: 8px; /* Bordas arredondadas */
+            padding: 2rem; /* Espaçamento interno */
+        }
+        /* Estilos do carrossel */
+        .gallery-swiper {
+            width: 100%;
+            padding: 1rem 0;
+            overflow-x: hidden; /* Remove barra de rolagem lateral */
+            position: relative; /* Garante que as setas fiquem dentro do contêiner */
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 256px; /* Mesmo tamanho da grade anterior */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer; /* Cursor de clique nas imagens */
+        }
+        /* Oculta setas globalmente por padrão */
+        .swiper-button-next, .swiper-button-prev {
+            display: none;
+        }
+        /* Exibe setas apenas no contêiner do carrossel da galeria */
+        .gallery-swiper .swiper-button-next, .gallery-swiper .swiper-button-prev {
+            display: block;
+            color: #facc15; /* Cor das setas (amarelo) */
+            margin-top: 0; /* Centraliza verticalmente */
+        }
+        /* Estilos do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        /* Estilos para estrelas */
+        .star-rating {
+            display: flex;
+            flex-direction: row; /* Ordem natural: esquerda para direita */
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+			cursor: pointer;
+        }
+        .star-rating input {
+            display: none;
+			cursor: pointer;
+        }
+        .star-rating label {
+            font-size: 1.5rem;
+            color: #d1d5db; /* Cinza claro para estrelas não selecionadas */
+            cursor: pointer;
+        }
+        .star-rating input:checked + label,
+        .star-rating label:hover {
+            color: #facc15; /* Amarelo para estrelas selecionadas ou em hover */
+        }
+        .star-rating input:checked ~ label {
+            color: #d1d5db; /* Garante que estrelas à direita da selecionada fiquem cinza */
+        }
+		
+        /* Estilos para a seção Picos */
+        .picos-section {
+            background: rgba(255, 255, 255, 0.95); /* Fundo branco suave */
+            border-radius: 8px; /* Bordas arredondadas */
+            padding: 2rem; /* Espaçamento interno */
+        }
+        .picos-item {
+            margin-bottom: 1.5rem;
+        }
+        .picos-item h3 {
+            color: #facc15; /* Amarelo para títulos */
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 smooth-scroll">
+    <!-- Menubar Superior -->
+    <header class="bg-black text-white fixed top-0 w-full z-50 shadow-md">
+        <nav class="container mx-auto flex flex-row items-center justify-between p-4">
+            <div class="text-xl sm:text-3xl brand-logo mr-8" id="logo">
+                CrazyCow
+            </div>
+            <ul class="flex flex-row space-x-2 sm:space-x-6 md:space-x-8 text-sm sm:text-lg font-roboto">
+                <li><a href="#home" class="hover:text-yellow-400 transition">Início</a></li>
+                <li><a href="#sobre" class="hover:text-yellow-400 transition">Sobre</a></li>
+                <li><a href="#galeria" class="hover:text-yellow-400 transition">Galeria</a></li>
+                <li><a href="#contato" class="hover:text-yellow-400 transition">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Hero com Vídeo de Fundo -->
+    <section id="home" class="hero-section flex items-center justify-center text-center text-white">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/video_background.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="p-8 rounded-lg z-10 hero-content">
+            <h1 class="text-5xl mb-4">Bem-vindo a CrazyCow Sk8boarding</h1>
+            <p class="text-xl mb-6">Viva a adrenalina do skate! Explore manobras, eventos e cultura.</p>
+            <a href="#sobre" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-center mb-8">Sobre o CrazyCow</h2>
+            <div class="flex flex-col md:flex-row items-center about-section">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="assets/img.jpg" alt="Skate em ação" class="w-full rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <p class="text-lg">
+                        Seja bem-vindo à <span class="hover-word">CrazyCow</span>! 🐮🛹
+                        <span class="hover-word">Skatistas</span> do interior do RJ desde 2016, na correria pra fazer o skate ganhar visão na cidade.
+                        A pista não veio fácil, mas a vontade nunca faltou.
+                        Aqui é ponto de encontro, <span class="hover-word">manobra</span>, ideia e <span class="hover-word">resistência</span>.
+                        Cola com a gente e fortalece esse rolê! ✌️🔥
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Galeria com Carrossel -->
+    <section id="galeria" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-center mb-8">Galeria</h2>
+            <div class="gallery-swiper w-full">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_1.jpg" alt="Manobra 1" data-large="imagem_1.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_2.jpg" alt="Manobra 2" data-large="imagem_2.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_3.jpg" alt="Manobra 3" data-large="imagem_3.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_4.jpg" alt="Manobra 4" data-large="imagem_4.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_5.jpg" alt="Manobra 5" data-large="imagem_5.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_6.jpg" alt="Manobra 6" data-large="imagem_6.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/imagem_7.jpg" alt="Manobra 7" data-large="imagem_7.jpg">
+                    </div>
+                </div>
+                <!-- Setas de navegação -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para visualização de imagem -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close">×</span>
+        <img id="modalImage" src="" alt="Imagem ampliada">
+    </div>
+	
+
+<!-- Seção Picos -->
+    <section id="picos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-center mb-8">Picos de Skate</h2>
+            <div class="picos-section">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="picos-item md:w-1/2">
+                        <h3 class="text-xl font-semibold">Praça Central</h3>
+                        <p class="text-lg">
+                            <strong>Endereço:</strong> Praça Pereira Lima, Centro, Santo Antônio de Pádua-RJ<br>
+                            <strong>Horários:</strong> Aberto 24hrs<br>
+                            <strong>Descrição:</strong>Principal local da cidade, com bancos, pedras e espaço para manobras. Perfeita para iniciantes e experientes. Rolês organizados todo sábado às 16h. Traga seu skate e venha curtir!
+                        </p>
+                    </div>
+                    <div class="picos-item md:w-1/2">
+                        <h3 class="text-xl font-semibold">Renatão Skate Plaza</h3>
+                        <p class="text-lg">
+                            <strong>Endereço:</strong> Av. Beira-Rio, 123, Bairro Tavares, Santo Antônio de Pádua-RJ<br>
+                            <strong>Horários:</strong> Terça a Domingo, 10h às 20h<br>
+                            <strong>Descrição:</strong> Pista coberta com obstáculos variados, ideal para dias chuvosos. Encontros da crew CrazyCow às quintas, 18h. Ótima vibe e iluminação noturna!
+                        </p>
+                    </div>
+					<div class="picos-item md:w-1/2">
+                        <h3 class="text-xl font-semibold">Ciep 269</h3>
+                        <p class="text-lg">
+                            <strong>Endereço:</strong> Av. ??, 987, Bairro Dezessete, Santo Antônio de Pádua-RJ<br>
+                            <strong>Horários:</strong> Aberto 24hrs<br>
+                            <strong>Descrição:</strong> Pista coberta com obstáculos variados, ideal para dias chuvosos. Encontros da crew CrazyCow às quintas, 18h. Ótima vibe e iluminação noturna!
+                        </p>
+                    </div>
+					<div class="picos-item md:w-1/2">
+                        <h3 class="text-xl font-semibold">Praça da Biblia</h3>
+                        <p class="text-lg">
+                            <strong>Endereço:</strong> Av. ??, 000, Bairro Dezessete, Santo Antônio de Pádua-RJ<br>
+                            <strong>Horários:</strong> Aberto 24hrs<br>
+                            <strong>Descrição:</strong> Pista aberta com obstáculos variados, ideal para dias chuvosos. Encontros da crew CrazyCow às quintas, 18h. Ótima vibe e iluminação noturna!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Seção Contato -->
+    <section id="contato" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl text-center mb-8">Contato</h2>
+            <form class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="nome" class="block text-lg mb-2">Nome</label>
+                    <input type="text" id="nome" class="w-full p-3 border rounded-lg" placeholder="Seu nome">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-lg mb-2">E-mail</label>
+                    <input type="email" id="email" class="w-full p-3 border rounded-lg" placeholder="Seu e-mail">
+                </div>
+                <div class="mb-4">
+                    <label for="mensagem" class="block text-lg mb-2">Mensagem</label>
+                    <textarea id="mensagem" class="w-full p-3 border rounded-lg" rows="5" placeholder="Seu comentário ou reclamação"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-lg mb-2">Avaliação</label>
+                    <div class="star-rating">
+                        <input type="radio" name="rating" id="star1" value="1">
+                        <label for="star1">★</label>
+                        <input type="radio" name="rating" id="star2" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" name="rating" id="star3" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" name="rating" id="star4" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" name="rating" id="star5" value="5">
+                        <label for="star5">★</label>
+                    </div>
+                </div>
+                <button type="submit" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+	<footer class="bg-black text-white py-8">
+		<div class="container mx-auto px-4 text-center">
+			<p class="font-roboto">© 2025 CrazyCow. Todos os direitos reservados.</p>
+			<div class="mt-4 flex justify-center space-x-4">
+				<a href="#"><img src="assets/instagram2.png" alt="Instagram" class="social-icon"></a>
+				<a href="#"><img src="assets/youtube2.png" alt="YouTube" class="social-icon"></a>
+				<a href="#"><img src="assets/x2.png" alt="Twitter" class="social-icon"></a>
+				<a href="#"><img src="assets/whatsapp2.png" alt="WhatsApp" class="social-icon"></a>
+			</div>
+		</div>
+	</footer>
+
+    <!-- Incluindo Swiper.js JS via CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- JavaScript para interatividade -->
+<!-- Incluindo Swiper.js JS via CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- JavaScript para interatividade -->
+    <script>
+		document.querySelectorAll('.social-icon').forEach(icon => {
+		// Armazena o caminho original (ex.: assets/instagram2.png)
+		const originalSrc = icon.src;
+		// Gera o caminho da imagem de hover (remove o "2" do nome do arquivo)
+		const hoverSrc = originalSrc.replace('2.png', '.png');
+
+		// Ao passar o mouse, troca para a imagem sem "2"
+		icon.addEventListener('mouseover', () => {
+			icon.src = hoverSrc;
+		});
+
+		// Ao sair com o mouse, volta para a imagem original com "2"
+		icon.addEventListener('mouseout', () => {
+			icon.src = originalSrc;
+		});
+	});
+	
+	
+	
+        // Smooth scroll para links do menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Validação do formulário com estrelas
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+
+            if (nome && email && mensagem && rating) {
+                alert(`Mensagem enviada com sucesso! Avaliação: ${rating.value} estrela(s)`);
+                this.reset();
+            } else {
+                alert('Por favor, preencha todos os campos, incluindo a avaliação.');
+            }
+        });
+
+        // Interação com o logotipo
+        document.getElementById('logo').addEventListener('click', function () {
+            alert('Bem-vindo ao CrazyCow! Viva a cultura do skate!');
+        });
+
+        // Inicialização do Swiper com autoplay
+        const swiper = new Swiper('.gallery-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            autoplay: {
+                delay: 3000, // 3 segundos por slide
+                disableOnInteraction: false, // Mantém autoplay mesmo com interação
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 16,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                },
+            },
+        });
+
+        // Modal para imagens
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.querySelector('.modal-close');
+        const images = document.querySelectorAll('.swiper-slide img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                modalImage.src = img.dataset.large;
+                modal.style.display = 'flex';
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
