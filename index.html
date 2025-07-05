@@ -1,162 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br" style="scroll-padding-top: 80px;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrazyCow - Tudo sobre Skate</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/icone_aba.png">
-    <!-- Incluindo Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Incluindo Google Fonts: Rubik Bubbles e Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Incluindo Swiper.js CSS via CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-        /* Estilos personalizados */
-        body {
-            font-family: 'Roboto', sans-serif; /* Fonte padrão para o corpo */
-            padding-top: 80px; /* Desloca o conteúdo para baixo da altura do cabeçalho */
-        }
-        h1, h2, .brand-logo {
-            font-family: 'Rubik Bubbles', cursive; /* Rubik Bubbles para títulos e logo */
-        }
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-        .hero-content {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para legibilidade */
-        }
-        .brand-logo {
-            cursor: pointer; /* Cursor de mãozinha ao passar o mouse */
-        }
-		.social-icon {
-			width: 32px; /* Tamanho fixo para ícones */
-			height: 32px;
-			transition: opacity 0.3s ease; /* Transição suave para opacidade */
-		}
-		.social-icon:hover {
-			opacity: 0.7; /* Efeito de opacidade ao passar o mouse */
-		}
-        .smooth-scroll {
-            scroll-behavior: smooth;
-        }
-        .hover-word {
-            transition: all 0.3s ease; /* Transição suave para hover */
-        }
-        .hover-word:hover {
-            color: #facc15; /* Amarelo do Tailwind (yellow-400) */
-            text-decoration: underline;
-            text-underline-offset: 4px; /* Sublinhado com deslocamento */
-        }
-        .about-section {
-            background: rgba(255, 255, 255, 0.95); /* Fundo branco suave */
-            border-radius: 8px; /* Bordas arredondadas */
-            padding: 2rem; /* Espaçamento interno */
-        }
-        /* Estilos do carrossel */
-        .gallery-swiper {
-            width: 100%;
-            padding: 1rem 0;
-            overflow-x: hidden; /* Remove barra de rolagem lateral */
-            position: relative; /* Garante que as setas fiquem dentro do contêiner */
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 256px; /* Mesmo tamanho da grade anterior */
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer; /* Cursor de clique nas imagens */
-        }
-        /* Oculta setas globalmente por padrão */
-        .swiper-button-next, .swiper-button-prev {
-            display: none;
-        }
-        /* Exibe setas apenas no contêiner do carrossel da galeria */
-        .gallery-swiper .swiper-button-next, .gallery-swiper .swiper-button-prev {
-            display: block;
-            color: #facc15; /* Cor das setas (amarelo) */
-            margin-top: 0; /* Centraliza verticalmente */
-        }
-        /* Estilos do modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 80vh;
-            border-radius: 8px;
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        /* Estilos para estrelas */
-        .star-rating {
-            display: flex;
-            flex-direction: row; /* Ordem natural: esquerda para direita */
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-			cursor: pointer;
-        }
-        .star-rating input {
-            display: none;
-			cursor: pointer;
-        }
-        .star-rating label {
-            font-size: 1.5rem;
-            color: #d1d5db; /* Cinza claro para estrelas não selecionadas */
-            cursor: pointer;
-        }
-        .star-rating input:checked + label,
-        .star-rating label:hover {
-            color: #facc15; /* Amarelo para estrelas selecionadas ou em hover */
-        }
-        .star-rating input:checked ~ label {
-            color: #d1d5db; /* Garante que estrelas à direita da selecionada fiquem cinza */
-        }
-		
-        /* Estilos para a seção Picos */
-        .picos-section {
-            background: rgba(255, 255, 255, 0.95); /* Fundo branco suave */
-            border-radius: 8px; /* Bordas arredondadas */
-            padding: 2rem; /* Espaçamento interno */
-        }
-        .picos-item {
-            margin-bottom: 1.5rem;
-        }
-        .picos-item h3 {
-            color: #facc15; /* Amarelo para títulos */
-            margin-bottom: 0.5rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CrazyCow: tudo sobre skate no interior do RJ. Galeria, picos e cultura underground.">
+  <title>CrazyCow - Tudo sobre Skate</title>
+  <link rel="icon" href="assets/icone_aba.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-gray-100 smooth-scroll">
     <!-- Menubar Superior -->
@@ -215,25 +68,25 @@
             <div class="gallery-swiper w-full">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="assets/imagem_1.jpg" alt="Manobra 1" data-large="imagem_1.jpg">
+                        <img src="assets/imagem_1.jpg" alt="Skatista realizando manobra na Praça Central"" data-large="imagem_1.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_2.jpg" alt="Manobra 2" data-large="imagem_2.jpg">
+                        <img src="assets/imagem_2.jpg" alt="Skatista executando flip na Renatão Skate Plaza"data-large="imagem_2.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_3.jpg" alt="Manobra 3" data-large="imagem_3.jpg">
+                        <img src="assets/imagem_3.jpg" alt="Crew CrazyCow reunida para sessão de skate" data-large="imagem_3.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_4.jpg" alt="Manobra 4" data-large="imagem_4.jpg">
+                        <img src="assets/imagem_4.jpg" alt="Manobra técnica com borda no Ciep 269" data-large="imagem_4.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_5.jpg" alt="Manobra 5" data-large="imagem_5.jpg">
+                        <img src="assets/imagem_5.jpg" alt="Pulo sobre obstáculo em praça urbana" data-large="imagem_5.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_6.jpg" alt="Manobra 6" data-large="imagem_6.jpg">
+                        <img src="assets/imagem_6.jpg" alt="Skatista deslizando em corrimão iluminado" data-large="imagem_6.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="assets/imagem_7.jpg" alt="Manobra 7" data-large="imagem_7.jpg">
+                        <img src="assets/imagem_7.jpg" alt="Trick no canto da pista ao entardecer" data-large="imagem_7.jpg">
                     </div>
                 </div>
                 <!-- Setas de navegação -->
@@ -248,6 +101,12 @@
         <span class="modal-close">×</span>
         <img id="modalImage" src="" alt="Imagem ampliada">
     </div>
+	
+	<!-- Modal de imagem -->
+	  <div class="modal" id="imageModal">
+		<span class="modal-close">×</span>
+		<img id="modalImage" src="" alt="Imagem ampliada" />
+	  </div>
 	
 
 <!-- Seção Picos -->
@@ -342,111 +201,8 @@
 		</div>
 	</footer>
 
-    <!-- Incluindo Swiper.js JS via CDN -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- JavaScript para interatividade -->
-<!-- Incluindo Swiper.js JS via CDN -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- JavaScript para interatividade -->
-    <script>
-		document.querySelectorAll('.social-icon').forEach(icon => {
-		// Armazena o caminho original (ex.: assets/instagram2.png)
-		const originalSrc = icon.src;
-		// Gera o caminho da imagem de hover (remove o "2" do nome do arquivo)
-		const hoverSrc = originalSrc.replace('2.png', '.png');
-
-		// Ao passar o mouse, troca para a imagem sem "2"
-		icon.addEventListener('mouseover', () => {
-			icon.src = hoverSrc;
-		});
-
-		// Ao sair com o mouse, volta para a imagem original com "2"
-		icon.addEventListener('mouseout', () => {
-			icon.src = originalSrc;
-		});
-	});
-	
-	
-	
-        // Smooth scroll para links do menu
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Validação do formulário com estrelas
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const mensagem = document.getElementById('mensagem').value;
-            const rating = document.querySelector('input[name="rating"]:checked');
-
-            if (nome && email && mensagem && rating) {
-                alert(`Mensagem enviada com sucesso! Avaliação: ${rating.value} estrela(s)`);
-                this.reset();
-            } else {
-                alert('Por favor, preencha todos os campos, incluindo a avaliação.');
-            }
-        });
-
-        // Interação com o logotipo
-        document.getElementById('logo').addEventListener('click', function () {
-            alert('Bem-vindo ao CrazyCow! Viva a cultura do skate!');
-        });
-
-        // Inicialização do Swiper com autoplay
-        const swiper = new Swiper('.gallery-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 16,
-            autoplay: {
-                delay: 3000, // 3 segundos por slide
-                disableOnInteraction: false, // Mantém autoplay mesmo com interação
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 16,
-                },
-            },
-        });
-
-        // Modal para imagens
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalClose = document.querySelector('.modal-close');
-        const images = document.querySelectorAll('.swiper-slide img');
-
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                modalImage.src = img.dataset.large;
-                modal.style.display = 'flex';
-            });
-        });
-
-        modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
-
-
