@@ -1,38 +1,87 @@
-# Bem-vindo ao CrazyCow Social!
 
-## Sobre o CrazyCow Social
+---
 
-O CrazyCow Social é uma página vibrante e moderna que conecta você às nossas redes sociais de forma divertida! No rodapé do site, você encontrará ícones do Instagram, YouTube, Twitter/X e WhatsApp. Ao passar o mouse sobre cada ícone, ele ganha vida com um efeito visual que muda sua cor, tornando a navegação mais interativa e envolvente.
+## 💡 Tecnologias Utilizadas
 
-Nosso objetivo é oferecer uma experiência simples e atraente para que você possa acessar nossas redes sociais com facilidade, seja no computador, tablet ou celular.
+- **HTML5** – Estrutura semântica
+- **CSS3 (Tailwind CSS)** – Estilo e responsividade
+- **JavaScript** – Interatividade
+- **Swiper.js** – Galeria com carrossel
+- **Google Fonts** – Tipografia customizada
 
-## O que você pode fazer?
+---
 
-- **Explorar nossas redes sociais**: Clique nos ícones para visitar nossos perfis no Instagram, YouTube, Twitter/X e WhatsApp.
-- **Aproveitar o design interativo**: Passe o mouse sobre os ícones e veja o efeito de mudança de cor em ação!
-- **Navegar em qualquer dispositivo**: O site é projetado para funcionar perfeitamente em desktops, tablets e celulares.
+## 🧩 Funcionalidades
 
-## Visualizações do Site
+| Requisito                                      | Implementado |
+|-----------------------------------------------|--------------|
+| Layout responsivo adaptável                   | ✅            |
+| Menu de navegação fixo e funcional            | ✅            |
+| Formulário de contato com validação JS        | ✅            |
+| 2+ efeitos interativos (modal, hover, scroll) | ✅            |
+| Aplicação de SEO básico                       | ⚠️ Parcial    |
 
-Confira como o CrazyCow Social aparece em diferentes dispositivos! (Substitua os caminhos abaixo pelas imagens reais do site.)
+---
 
-| Dispositivo | Visualização |
-|-------------|--------------|
-| Desktop     | ![Visualização no Desktop](assets/desktop.gif) |
-| Tablet      | ![Visualização no Tablet](assets/tablet.gif) |
-| Mobile      | ![Visualização no Celular](assets/mobile.gif) |
+## ✨ Efeitos Interativos
 
-## Como usar
+- **Modal** para ampliar imagens da galeria
+- **Scroll suave** ao clicar nos links de navegação
+- **Hover dinâmico** nos ícones sociais
+- **Validação do formulário com estrelas**
 
-1. Abra o site no seu navegador (funciona em Chrome, Firefox, Safari e outros).
-2. Role até o rodapé da página.
-3. Passe o mouse sobre os ícones de redes sociais para ver o efeito de mudança de cor.
-4. Clique nos ícones para acessar nossos perfis e se conectar com a CrazyCow!
+---
 
-## Perguntas ou Sugestões?
+## 🔍 SEO Aplicado
 
-Quer entrar em contato ou compartilhar ideias para melhorar o CrazyCow Social? Envie uma mensagem para nós através de qualquer uma das nossas redes sociais listadas no rodapé!
+- Uso de tags semânticas (`<header>`, `<nav>`, `<section>`, `<footer>`)
+- Título descritivo da página (`<title>`)
+- Descrições `alt` significativas nas imagens (ex: `"Skatista realizando manobra na Praça Central"`)
+- Sugestão: Adicionar `<meta name="description">` para melhorar visibilidade em buscadores
 
-## Direitos
+---
 
-© 2025 CrazyCow. Todos os direitos reservados.
+## 🎨 Escolhas de Design
+
+- **Paleta urbana** com preto, branco e amarelo
+- Tipografia estilizada para título com **Rubik Bubbles**
+- Layout organizado com Tailwind CSS
+- Imagens de alta energia no carrossel para valorizar a cultura do skate
+
+---
+
+## ⚙️ Desafios Enfrentados
+
+- Criar **modal customizado** responsivo sem biblioteca externa
+- Integrar **Swiper.js** de forma modular com autoplay e responsividade
+- Modularizar o projeto separando CSS e JS
+- Garantir que as imagens da galeria funcionem bem em dispositivos móveis
+
+---
+
+## 📷 Capturas de Tela
+
+> (Inserir aqui imagens do site rodando em desktop e mobile, incluindo: galeria, formulário e home)
+
+---
+
+## 📚 Conceitos Aplicados da Disciplina
+
+- Programação Web (HTML, CSS, JS)
+- Design Responsivo
+- Modularização e organização de código
+- Interação e experiência do usuário (UX)
+- SEO básico e acessibilidade
+- Estrutura semântica e validação
+
+---
+
+## 📫 Contato
+
+Formulário de contato disponível na seção “Contato” do site. A avaliação por estrelas permite obter feedback qualitativo dos visitantes.
+
+---
+
+## ✅ Status
+
+Projeto finalizado ✔️
